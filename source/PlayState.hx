@@ -405,8 +405,11 @@ class PlayState extends MusicBeatState
 		     switch (songLowercase)
 				{
 					case 'lo-freeze' | 'leader':
-					skyBG = new FlxSprite(-120, 50).loadGraphic(Paths.image('rooftop/bg', 'shared'));
+					skyBG = new FlxSprite(-120, -50).loadGraphic(Paths.image('rooftop/bg', 'shared'));
 					skyBG.scrollFactor.set(0.1, 0.1);
+					case 'rooftop-party' | 'mtc':
+					skyBG = new FlxSprite(-120, -50);
+					skyBG.frames = Paths.getSparrowAtlas('rooftop/bg2', 'shared');
 
 				}
 					add(skyBG);
