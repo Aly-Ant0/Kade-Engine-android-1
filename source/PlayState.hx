@@ -178,6 +178,11 @@ class PlayState extends MusicBeatState
 	var phillyTrain:FlxSprite;
 	var trainSound:FlxSound;
 
+	var house:FlxSprite;
+	var skyBG:FlxSprite;
+	var thing:FlxSprite;
+	var snow:FlxSprite;
+
 	var limo:FlxSprite;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
 	var fastCar:FlxSprite;
@@ -392,6 +397,22 @@ class PlayState extends MusicBeatState
 
 		switch(stageCheck)
 		{
+			case 'rooftop': 
+			{
+				curStage = 'rooftop';
+				defaultCamZoom = 0.9;
+
+		     switch (songLowercase)
+				{
+					case 'lo-freeze' | 'leader':
+					skyBG = new FlxSprite(-120, 50).loadGraphic(Paths.image('rooftop/bg', 'shared'));
+					skyBG.scrollFactor.set(0.1, 0.1);
+
+				}
+					add(skyBG);
+
+				var hallowTex = Paths.getSparrowAtlas('halloween_bg','week2');
+			}
 			case 'halloween': 
 			{
 				curStage = 'spooky';
