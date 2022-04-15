@@ -718,7 +718,28 @@ class PlayState extends MusicBeatState
 				{
 						defaultCamZoom = 0.9;
 						curStage = 'swagmountain';
-						var back:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('stageback'));
+						var back:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('swagmountain/back'));
+				    back.screenCenter(XY);
+						back.antialiasing = true;
+						back.scrollFactor.set(0.9, 0.9);
+						back.active = false;
+						add(back);
+	
+						var front:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('swagmountain/front'));
+						front.screenCenter(XY);
+						front.updateHitbox();
+						front.antialiasing = true;
+						front.scrollFactor.set(0.9, 0.9);
+						front.active = false;
+						add(front);
+				}
+			default:
+			{
+
+						defaultCamZoom = 0.9;
+						curStage = 'swagmountain';
+						var back:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('swagmountain/back'));
+            back.screenCenter(XY);
 						back.antialiasing = true;
 						back.scrollFactor.set(0.9, 0.9);
 						back.active = false;
@@ -730,33 +751,6 @@ class PlayState extends MusicBeatState
 						front.scrollFactor.set(0.9, 0.9);
 						front.active = false;
 						add(front);
-				}
-			default:
-			{
-					defaultCamZoom = 0.9;
-					curStage = 'stage';
-					var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
-					bg.antialiasing = true;
-					bg.scrollFactor.set(0.9, 0.9);
-					bg.active = false;
-					add(bg);
-
-					var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
-					stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-					stageFront.updateHitbox();
-					stageFront.antialiasing = true;
-					stageFront.scrollFactor.set(0.9, 0.9);
-					stageFront.active = false;
-					add(stageFront);
-
-					var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-					stageCurtains.updateHitbox();
-					stageCurtains.antialiasing = true;
-					stageCurtains.scrollFactor.set(1.3, 1.3);
-					stageCurtains.active = false;
-
-					add(stageCurtains);
 			}
 		}
 		}
@@ -781,8 +775,10 @@ class PlayState extends MusicBeatState
 				curGf = 'gf-christmas';
 			case 'gf-pixel':
 				curGf = 'gf-pixel';
+			case 'gf':
+			  curGf = 'gf';
 			default:
-				curGf = 'gf';
+				curGf = 'sael';
 		}
 		
 		gf = new Character(400, 130, curGf);
