@@ -397,7 +397,7 @@ class PlayState extends MusicBeatState
 
 		switch(stageCheck)
 		{
-			case 'rooftop': 
+			case 'rooftop': // yes i have the ftm source code haha
 			{
 				curStage = 'rooftop';
 				defaultCamZoom = 0.9;
@@ -410,6 +410,11 @@ class PlayState extends MusicBeatState
 					case 'rooftop-party' | 'mtc':
 					skyBG = new FlxSprite(-120, -50);
 					skyBG.frames = Paths.getSparrowAtlas('rooftop/bg2', 'shared');
+					skyBG.animation.addByPrefix('neon', 'neonshit');
+						
+					//neon end thing, IDK how animation in kade engine works
+					skyBG.animation.addByPrefix('normal', 'mycum');
+	        skyBG.animation.play('normal');
 
 				}
 					add(skyBG);
