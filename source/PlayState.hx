@@ -422,7 +422,7 @@ class PlayState extends MusicBeatState
 
 				thing = new FlxSprite(-220, 480);
 				thing.frames = Paths.getSparrowAtlas('rooftop/high/thing', 'shared');
-				thing.aniamtion.addByPrefix('thinglol', 'background thing');
+				thing.animation.addByPrefix('thinglol', 'background thing');
 				thing.animation.play('thinglol');
 				thing.scrollFactor.set(0.4, 0.4);
 				add(thing);
