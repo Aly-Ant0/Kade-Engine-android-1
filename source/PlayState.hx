@@ -416,9 +416,40 @@ class PlayState extends MusicBeatState
 					//neon end thing, IDK how animation in kade engine works
 					skyBG.animation.addByPrefix('normal', 'mycum');
 	        skyBG.animation.play('normal');
-
+	        skyBG.scrollFactor.set(0.1, 0.1);
 				}
 					add(skyBG);
+
+				thing = new FlxSprite(-220, 480);
+				thing.frames = Paths.getSparrowAtlas('rooftop/high/thing', 'shared');
+				thing.aniamtion.addByPrefix('thinglol', 'background thing');
+				thing.animation.play('thinglol');
+				thing.scrollFactor.set(0.4, 0.4);
+				add(thing);
+
+				snow = new FlxSprite(0, 0);
+				snow.frames = Paths.getSparrowAtlas('rooftop/high/Snow', 'shared');
+				snow.animation.addByPrefix('coming', 'coming', 24, false);
+				snow.animation.addByPrefix('help', 'help', 24, true);
+				snow.setGraphicSize(Std.int(snow.width * 1.5));
+				snow.screenCenter(XY);
+				snow.scrollFactor.set(0, 0);
+				snow.visible = false;
+				snow.animation.play('help');
+
+		     switch (songLowercase)
+				{
+				  case 'lo-freeze' | 'leader':
+				    house = new FlxSprite(-120, 550).loadGraphic(Paths.image('rooftop/House', 'shared'));
+				    house.scrollFactor.set(1, 1);
+				  case 'rooftop-party' | 'mtc':
+				    house = new FlxSprite(-120, 550);
+				    house.frames = Paths.getSparrowAtlas('rooftop/Houses', 'shared');
+						house.animation.addByPrefix('neon', 'MechanicalKeyboard');
+						//neon end thing, IDK how animation in psych works
+						house.animation.addByPrefix('normal', 'NooMyCumCollection');
+						house.animation.play('normal');
+				}
 
 				var hallowTex = Paths.getSparrowAtlas('halloween_bg','week2');
 			}
@@ -863,6 +894,11 @@ class PlayState extends MusicBeatState
 		// REPOSITIONING PER STAGE
 		switch (curStage)
 		{
+			case 'rooftop':
+				boyfriend.y -= 175;
+				boyfriend.x += 187;
+				gf.x = 500;
+				gf.y = 137;
 			case 'limo':
 				boyfriend.y -= 220;
 				boyfriend.x += 260;
@@ -907,8 +943,14 @@ class PlayState extends MusicBeatState
 			if (curStage == 'limo')
 				add(limo);
 
+			if (curStage == 'rooftop')
+				add(house);
+
 			add(dad);
 			add(boyfriend);
+
+			if (curStage == 'rooftop')
+				add(snow);
 		}
 
 
